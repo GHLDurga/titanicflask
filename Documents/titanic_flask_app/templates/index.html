@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Titanic Survival Prediction</title>
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="dashboard">
+
+        <div class="left-panel">
+
+            <div class="logo">
+
+                <i class="fa-solid fa-ship"></i>
+
+                <h1>Titanic AI</h1>
+
+            </div>
+
+            <h2>Survival Prediction Dashboard</h2>
+
+            <p>
+                Predict whether a passenger would survive the Titanic disaster
+                using a Machine Learning model built with Random Forest.
+            </p>
+
+            <div class="stats">
+
+                <div class="card">
+
+                    <i class="fa-solid fa-brain"></i>
+
+                    <h3>Model</h3>
+
+                    <span>Random Forest</span>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-database"></i>
+
+                    <h3>Dataset</h3>
+
+                    <span>Kaggle Titanic</span>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h3>Task</h3>
+
+                    <span>Classification</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="right-panel">
+
+            <form action="/predict" method="POST">
+
+                <h2>Passenger Details</h2>
+
+                <div class="grid">
+
+                    <div class="input-box">
+
+                        <label>Passenger Class</label>
+
+                        <select name="pclass">
+
+                            <option value="1">First</option>
+
+                            <option value="2">Second</option>
+
+                            <option value="3">Third</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Gender</label>
+
+                        <select name="sex">
+
+                            <option value="0">Male</option>
+
+                            <option value="1">Female</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Age</label>
+
+                        <input type="number"
+                               step="0.1"
+                               name="age"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Siblings / Spouse</label>
+
+                        <input type="number"
+                               name="sibsp"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Parents / Children</label>
+
+                        <input type="number"
+                               name="parch"
+                               required>
+
+                    </div>
+
+                    <div class="input-box">
+
+                        <label>Fare</label>
+
+                        <input type="number"
+                               step="0.01"
+                               name="fare"
+                               required>
+
+                    </div>
+
+                    <div class="input-box full-width">
+
+                        <label>Embarked</label>
+
+                        <select name="embarked">
+
+                            <option value="0">Southampton</option>
+
+                            <option value="1">Cherbourg</option>
+
+                            <option value="2">Queenstown</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <button type="submit">
+
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                    Predict Survival
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
